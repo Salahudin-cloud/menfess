@@ -14,9 +14,24 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
+        <!-- preloader -->
+        <?php include(APPPATH . 'Views/imports/templates/backend/pre.php') ?>
+
+        <!-- navbar -->
+        <?php include(APPPATH . 'Views/imports/templates/backend/nav.php') ?>
 
 
+        <!-- sidebar -->
+        <?php include(APPPATH . 'Views/imports/templates/backend/sidebar.php') ?>
 
+
+        <div class="content-wrapper">
+            <!-- navbar -->
+            <?php include(APPPATH . 'Views/imports/templates/backend/content_header.php') ?>
+
+            <!-- navbar -->
+            <?php include(APPPATH . 'Views/imports/templates/backend/main_content.php') ?>
+        </div>
 
         <!-- footer -->
         <?php include(APPPATH  . 'Views/imports/templates/backend/footer.php') ?>
