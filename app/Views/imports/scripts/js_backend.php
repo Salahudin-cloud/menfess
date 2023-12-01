@@ -8,10 +8,7 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url() . 'assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js' ?>"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url() . 'assets/backend/plugins/chart.js/Chart.min.js' ?>"></script>
-<!-- Sparkline -->
-<script src="<?php echo base_url() . 'assets/backend/plugins/sparklines/sparkline.js' ?>"></script>
+
 <!-- JQVMap -->
 <script src="<?php echo base_url() . 'assets/backend/plugins/jqvmap/jquery.vmap.min.js' ?>"></script>
 <script src="<?php echo base_url() . 'assets/backend/plugins/jqvmap/maps/jquery.vmap.usa.js' ?>"></script>
@@ -28,7 +25,3 @@
 <script src="<?php echo base_url() . 'assets/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url() . 'assets/backend/dist/js/adminlte.js' ?>"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url() . 'assets/backend/dist/js/demo.js' ?>"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url()  . 'assets/backend/dist/js/pages/dashboard.js' ?>"></script>
