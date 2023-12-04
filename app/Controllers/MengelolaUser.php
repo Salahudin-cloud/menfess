@@ -3,7 +3,7 @@
 
 namespace App\Controllers;
 
-class UserManagementAdmin extends BaseController
+class MengelolaUser extends BaseController
 {
       // render halaman user manager  admn 
     public function usermanage()
