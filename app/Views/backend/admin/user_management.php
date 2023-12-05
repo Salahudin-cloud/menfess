@@ -26,8 +26,7 @@
 
 
         <div class="content-wrapper">
-            <!-- navbar -->
-            <?php include(APPPATH . 'Views/imports/templates/backend/content_header.php') ?>
+            
             <!-- Main content -->
             <!-- Main content -->
             <div class="content">
@@ -36,14 +35,14 @@
                         <div class="card-header">
                             <h1 class="card-title ">
                                 <i class="fas fa-users" style="font-size: 1.5rem;"></i>
-                                Users Management
+                                Mengelola User
                             </h1>
                         </div>
                         <div class="card-body">
                             <!-- add userr btn  -->
-                            <a href="">
+                            <a href="<?php echo site_url('tambahuser') ?>">
                                 <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> Add User
+                                    <i class="fas fa-plus"></i> Tambah User
                                 </button>
                             </a>
                             <!-- Show list of user -->
@@ -67,7 +66,7 @@
                                         <td>Active</td>
                                         <td>
                                             <div class="btn-group " role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                <a href="<?php echo site_url('edituser') ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
                                                 <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
                                             </div>
                                         </td>

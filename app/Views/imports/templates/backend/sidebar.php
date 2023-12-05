@@ -31,16 +31,17 @@
                     <a href="<?php echo site_url('user_management') ?>" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            User Management
+                            Mengelola User
                         </p>
                     </a>
                 </li>
-                <!-- category -->
+                
+                <!-- Mengelola Artikel -->
                 <li class="nav-item ">
-                    <a href="<?php echo site_url('category') ?>" class="nav-link">
+                    <a href="<?php echo site_url('article') ?>" class="nav-link">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
-                            Category
+                            Mengelola Artikel
                         </p>
                     </a>
                 </li>

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class HomeAdmin extends BaseController
+class HalamanAdmin extends BaseController
 {
       // render halaman dashboar admin  admn 
     public function admin()

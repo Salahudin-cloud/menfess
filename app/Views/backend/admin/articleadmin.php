@@ -28,42 +28,45 @@
         <div class="content-wrapper">
             <!-- navbar -->
             <?php include(APPPATH . 'Views/imports/templates/backend/content_header.php') ?>
-
+            <!-- Main content -->
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="card">
+                    <div class="card card-dark">
                         <div class="card-header">
-                            <!-- button add category -->
-                            <a href="<?php echo site_url('category/new_category') ?>">
-                                <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> New Category
-                                </button>
-                            </a>
+                            <h1 class="card-title ">
+                                <i class="fas fa-users" style="font-size: 1.5rem;"></i>
+                                Mengelola Artikel
+                            </h1>
                         </div>
                         <div class="card-body">
-                            <!-- Show list of category -->
-                            <table class="table table-bordered table-hover">
+                            <!-- add userr btn  -->
+                            <a href="">
+                                <button class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus"></i> Add Artikel
+                                </button>
+                            </a>
+                            <!-- Show list of user -->
+                            <table class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
-                                        <th>Name Category</th>
-                                        <th>Slud Category</th>
-                                        <th style="width: 10%;">Action</th>
+                                        <th>Judul Artikel</th>
+                                        <th>Kategori</th>
+                                        <th>Status</th>
+                                        <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Informasi</td>
-                                        <td>informasi</td>
+                                        <td>Karir jika memilih teknik informatika</td>
+                                        <td>Karir</td>
+                                        <td>Publikasi</td>
                                         <td>
-                                            <div class="btn-group" role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning"><i class="nav-icon fas fa-edit"></i></a>
-                                                <form action="" method="POST">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button class="btn btn-sm btn-danger" type="submit"><i class="nav-icon fas fa-trash"></i></button>
-                                                </form>
+                                            <div class="btn-group " role="group" aria-label="Action buttons">
+                                                <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
