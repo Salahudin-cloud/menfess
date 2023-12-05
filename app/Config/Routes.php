@@ -27,6 +27,12 @@ $routes->get('/user_management', 'MengelolaUser::usermanage');
 // backend admin : tambah user 
 $routes->get('/tambahuser', 'HalamanTambahUser::tambahusr');
 
+// backend admin : tambah user 
+$routes->get('/tambahartikel', 'HalamanTambahArtikel::tambahartik');
+
+// backend admin : tambah user 
+$routes->get('/editartikel', 'HalamanEditArtikel::editartik');
+
 // backend admin : edit user 
 $routes->get('/edituser', 'HalamanEditUser::editusr');
 

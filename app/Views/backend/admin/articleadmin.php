@@ -35,13 +35,13 @@
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-users" style="font-size: 1.5rem;"></i>
+                                <i class="nav-icon fas fa-layer-group" style="font-size: 1.5rem;"></i>
                                 Mengelola Artikel
                             </h1>
                         </div>
                         <div class="card-body">
                             <!-- add userr btn  -->
-                            <a href="">
+                            <a href="<?php echo site_url('tambahartikel') ?>">
                                 <button class="btn btn-sm btn-success">
                                     <i class="fas fa-plus"></i> Add Artikel
                                 </button>
@@ -65,7 +65,7 @@
                                         <td>Publikasi</td>
                                         <td>
                                             <div class="btn-group " role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                <a href="<?php echo site_url('editartikel') ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
                                                 <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
                                             </div>
                                         </td>

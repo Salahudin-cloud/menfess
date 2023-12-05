@@ -49,28 +49,28 @@
                             <table class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
-                                        <th style="width: 1%;">NO</th>
-                                        <th>Name</th>
                                         <th>Username</th>
-                                        <th>Level</th>
+                                        <th>Password</th>
+                                        <th>Hak Akses</th>
                                         <th>Status</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach($all_data as $pengelolaanuser):?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Salahudin</td>
-                                        <td>udin</td>
-                                        <td>User</td>
-                                        <td>Active</td>
+                                        <td><?= $pengelolaanuser->username?></td>
+                                        <td><?= $pengelolaanuser->password?></td>
+                                        <td><?= $pengelolaanuser->role?></td>
+                                        <td><?= $pengelolaanuser->status_pengguna?></td>
                                         <td>
                                             <div class="btn-group " role="group" aria-label="Action buttons">
-                                                <a href="<?php echo site_url('edituser') ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                <a href="<?php echo site_url('edituser').'/'.$pengelolaanuser->id_pengguna ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
                                                 <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>
