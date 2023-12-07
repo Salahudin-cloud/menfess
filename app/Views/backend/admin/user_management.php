@@ -66,7 +66,7 @@
                                         <td>
                                             <div class="btn-group " role="group" aria-label="Action buttons">
                                                 <a href="<?php echo site_url('edituser').'/'.$pengelolaanuser->id_pengguna ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
-                                                <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
+                                                <a href="<?php echo site_url('hapususer').'/'.$pengelolaanuser->id_pengguna ?>" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>

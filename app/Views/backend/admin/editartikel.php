@@ -40,20 +40,34 @@
                             </h1>
                         </div>
                         <div class="card-body">
-                            <form action="post">
+                        <form action="<?= base_url('proseseditartikel') ?>" method="post">
+                        <input type="hidden" name="id_artikel" maxlength="30" value="<?= $artikel_edit->id_artikel?>">
                                 <label for="judul">Judul</label><br>
-                                <input type="text" name="judulartikle" maxlength="90">
+                                <input type="text" name="judul_artikel" maxlength="90" value="<?= $artikel_edit->judul_artikel?>">
                                 <br>
-                                <label for="Kategori">Kategori</label><br>
-                                <input name="kategori" type="radio" value="Kampus" required autofocus>
-                            <label for="kategori">Karir</label>
-                            <input name="kategori" type="radio" value="Karir"required autofocus>
-                            <label for="kategori">Kampus</label><br>
-                                <label for="isiartikel">Isi Artikel</label><br>
-                                <textarea name="isiartikel" id="isiartikel" cols="100" rows="10"></textarea>
+
+                                <label for="tanggal_artikel">Tanggal Artikel</label><br>
+                                <input type="date" name="tanggal_artikel" value="<?= $artikel_edit->tanggal_artikel?>"><br>
+
+                                <label for="kategori_artikel">Kategori</label><br>
+                                <input name="kategori_artikel" type="radio" value="Kampus" <?php echo ($artikel_edit->kategori_artikel === 'Kampus') ? 'checked' : ''; ?> required autofocus>
+                                 <label for="kategori_artikel">Kampus</label>
+                                <input name="kategori_artikel" type="radio" value="Karir" <?php echo ($artikel_edit->kategori_artikel === 'Karir') ? 'checked' : ''; ?> required autofocus>
+                                <label for="kategori_artikel">Karir</label><br>
+
+                                <label for="gambar_artikel">Gambar</label>
+                                <input type="file" name="gambar_artikel" value="<?= $artikel_edit->gambar_artikel?>"><br>
+
+                                <label for="isi_artikel">Isi Artikel</label><br>
+                                <textarea name="isi_artikel" id="isi_artikel" cols="100" rows="10" value="<?= $artikel_edit->isi_artikel?>"></textarea>
                                 <br>
-                                <input name="publikasi" type="radio" value="Publikasi" required autofocus>
-                                <label for="publikasi">Publikasi</label><br>
+
+                                <label for="status_artikel">Status Artikel</label><br>
+                                <input name="status_artikel" type="radio" value="Publikasi" <?php echo ($artikel_edit->status_artikel === 'Publikasi') ? 'checked' : ''; ?> required autofocus>
+                                <label for="status_artikel">Publikasi</label>
+                                <input name="status_artikel" type="radio" value="Tidak Publikasi" <?php echo ($artikel_edit->status_artikel === 'Tidak Publikasi') ? 'checked' : ''; ?> required autofocus required autofocus>
+                                <label for="status_artikel">Tidak Publikasi</label><br>
+
                                 <a class="btn btn-sm btn-success float-right ml-1" style="color: white;" href="<?php echo site_url('article') ?>"> Batal</a>
                                 <button type="submit" class="btn btn-sm btn-success float-right">
                                     Simpan
