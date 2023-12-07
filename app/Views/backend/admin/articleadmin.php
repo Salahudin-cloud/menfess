@@ -26,8 +26,6 @@
 
 
         <div class="content-wrapper">
-            <!-- navbar -->
-            <?php include(APPPATH . 'Views/imports/templates/backend/content_header.php') ?>
             <!-- Main content -->
             <!-- Main content -->
             <div class="content">
@@ -35,13 +33,13 @@
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-users" style="font-size: 1.5rem;"></i>
+                                <i class="nav-icon fas fa-layer-group" style="font-size: 1.5rem;"></i>
                                 Mengelola Artikel
                             </h1>
                         </div>
                         <div class="card-body">
                             <!-- add userr btn  -->
-                            <a href="">
+                            <a href="<?php echo site_url('tambahartikel') ?>">
                                 <button class="btn btn-sm btn-success">
                                     <i class="fas fa-plus"></i> Add Artikel
                                 </button>
@@ -50,26 +48,28 @@
                             <table class="table table-bordered table-hover mt-2">
                                 <thead>
                                     <tr>
-                                        <th style="width: 1%;">NO</th>
                                         <th>Judul Artikel</th>
-                                        <th>Kategori</th>
-                                        <th>Status</th>
+                                        <th>Tanggal Artikel</th>
+                                        <th>Kategori Artikel</th>
+                                        <th>Status Artikel</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach($data_artikel as $pengelolaanartikel): ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Karir jika memilih teknik informatika</td>
-                                        <td>Karir</td>
-                                        <td>Publikasi</td>
+                                        <td><?= $pengelolaanartikel->judul_artikel?></td>
+                                        <td><?= $pengelolaanartikel->tanggal_artikel?></td>
+                                        <td><?= $pengelolaanartikel->kategori_artikel?></td>
+                                        <td><?= $pengelolaanartikel->status_artikel?></td>
                                         <td>
                                             <div class="btn-group " role="group" aria-label="Action buttons">
-                                                <a href="" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
-                                                <a href="" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
+                                                <a href="<?php echo site_url('editartikel').'/'.$pengelolaanartikel->id_artikel ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                <a href="<?php echo site_url('hapusartikel').'/'.$pengelolaanartikel->id_artikel ?>" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php endforeach ?>
                                 </tbody>
                             </table>
                         </div>

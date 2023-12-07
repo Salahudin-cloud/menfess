@@ -31,55 +31,6 @@
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-
-                    <!-- small box info  -->
-                    <!-- Box info -->
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>100</h3>
-                                    <p>Articles</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-file"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>30</h3>
-                                    <p>Pages</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-file-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>100</h3>
-                                    <p>Users</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-users"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>20</h3>
-                                    <p>Categories</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fa fa-tags"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -92,34 +43,29 @@
                                     <h3>Selamat Datang !</h3>
                                     <div class="table-responsive">
                                         <table class="table table-borderless ">
-                                            <tr>
-                                                <th width="10%">Nama</th>
-                                                <th width="1%">:</th>
-                                                <td>
-                                                    <p>Admin</p>
-                                                </td>
-                                            </tr>
+                                            <?php foreach($data_admin as $administrasi):?>
                                             <tr>
                                                 <th width="10%">Username</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p>Admin</p>
+                                                    <p><?= $administrasi->username?></p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th width="10%">Hak Akses</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p>admin</p>
+                                                    <p><?= $administrasi->role?></p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th width="10%">Status</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p>Active</p>
+                                                    <p><?= $administrasi->status_pengguna?></p>
                                                 </td>
                                             </tr>
+                                            <?php endforeach?>
                                         </table>
                                     </div>
                                 </div> <!--card body  -->
