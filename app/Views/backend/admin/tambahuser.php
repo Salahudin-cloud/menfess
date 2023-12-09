@@ -27,45 +27,79 @@
 
         <div class="content-wrapper">
             <!-- navbar -->
-            <?php include(APPPATH . 'Views/imports/templates/backend/content_header.php') ?>
-            <!-- Main content -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Mengelola Pengguna</h1>
+                            <div class="mt-2">
+                                <a href="<?php echo site_url('user_management') ?>">
+                                    <button class="btn btn-sm btn-success">
+                                        <i class="fas fa-arrow-left"></i> Kembali
+                                    </button>
+                                </a>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="<?php echo site_url('user_management') ?>">Mengelola Pengguna</a></li>
+                                <li class="breadcrumb-item active">Tambah Pengguna</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <div class="card card-dark">
                         <div class="card-header">
                             <h1 class="card-title ">
-                                <i class="fas fa-users" style="font-size: 1.5rem;"></i>
-                                Tambah User
+                                <i class="fas fa-user" style="font-size: 1.5rem;"></i>
+                                Tambah Pengguna
                             </h1>
                         </div>
                         <div class="card-body">
-                            <form action="<?= base_url('prosestambahuser') ?>" method="post">
-                                <label for="namauser">Username</label><br>
-                                <input type="text" name="username" maxlength="30">
-                                <br>
-                                <label for="password">Password</label><br>
-                                <input type="text" name="password" maxlength="8"><br>
-                                <label for="role">Kategori</label><br>
-                                <input name="role" type="radio" value="Admin" required autofocus>
-                                <label for="role">Admin</label>
-                                <input name="role" type="radio" value="User"required autofocus>
-                                <label for="role">User</label><br>
-                                <label for="status_pengguna">Status Pengguna</label><br>
-                                <input name="status_pengguna" type="radio" value="Aktif" required autofocus>
-                                <label for="status_pengguna">Aktif</label>
-                                <input name="status_pengguna" type="radio" value="Tidak Aktif" required autofocus>
-                                <label for="status_pengguna">Tidak Aktif</label><br>
-                                <a class="btn btn-sm btn-success float-right ml-1" style="color: white;" href="<?php echo site_url('user_management') ?>"> Batal</a>
-                                <button type="submit" class="btn btn-sm btn-success float-right">
-                                    Simpan
-                                </button>
+                            <?php if (session()->getFlashdata('errors')) : ?>
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        <?php foreach (session()->getFlashdata('errors') as $error) : ?>
+                                            <li><?php echo $error; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                            <!-- Form add new user accoiunt -->
+                            <form action="<?php echo site_url('prosestambahuser') ?>" method="post">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="role">Role :</label>
+                                        <select class="form-control" id="role" name="role">
+                                            <option value="" selected disabled> -- Pilih Role --</option>
+                                            <option value="admin">Admin</option>
+                                            <option value="pengguna">Pengguna</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-success form-control">Tambah</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <!-- footer -->
         <?php include(APPPATH  . 'Views/imports/templates/backend/footer.php') ?>
 

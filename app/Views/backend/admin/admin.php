@@ -40,32 +40,23 @@
                                     </h1>
                                 </div>
                                 <div class="card-body">
-                                    <h3>Selamat Datang !</h3>
+                                    <h3>Selamat Datang Admin!</h3>
                                     <div class="table-responsive">
                                         <table class="table table-borderless ">
-                                            <?php foreach($data_admin as $administrasi):?>
                                             <tr>
                                                 <th width="10%">Username</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p><?= $administrasi->username?></p>
+                                                    <p><?= session()->get('username')  ?></p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th width="10%">Hak Akses</th>
                                                 <th width="1%">:</th>
                                                 <td>
-                                                    <p><?= $administrasi->role?></p>
+                                                    <p><?= session()->get('role') ?></p>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <th width="10%">Status</th>
-                                                <th width="1%">:</th>
-                                                <td>
-                                                    <p><?= $administrasi->status_pengguna?></p>
-                                                </td>
-                                            </tr>
-                                            <?php endforeach?>
                                         </table>
                                     </div>
                                 </div> <!--card body  -->

@@ -31,17 +31,37 @@
                     <a href="<?php echo site_url('user_management') ?>" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Mengelola User
+                            Mengelola Pengguna
                         </p>
                     </a>
                 </li>
-                
+
+                <!-- kategori -->
+                <li class="nav-item ">
+                    <a href="<?php echo site_url('kategori') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-layer-group"></i>
+                        <p>
+                            Mengelola Kategori
+                        </p>
+                    </a>
+                </li>
+
                 <!-- Mengelola Artikel -->
                 <li class="nav-item ">
                     <a href="<?php echo site_url('article') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-layer-group"></i>
+                        <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Mengelola Artikel
+                        </p>
+                    </a>
+                </li>
+
+                <!-- Log Out -->
+                <li class="nav-item ">
+                    <a href="<?php echo site_url('logout') ?>" class="nav-link">
+                        <i class="nav-icon fas  fa-sign-out-alt"></i>
+                        <p>
+                            Log Out
                         </p>
                     </a>
                 </li>

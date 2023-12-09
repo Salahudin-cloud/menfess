@@ -26,53 +26,68 @@
 
 
         <div class="content-wrapper">
-            
-            <!-- Main content -->
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Mengelola Pengguna</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="<?php echo site_url('dashboard') ?>">Home</a></li>
+                                <li class="breadcrumb-item active">Mengelola Pengguna</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="card card-dark">
-                        <div class="card-header">
-                            <h1 class="card-title ">
-                                <i class="fas fa-users" style="font-size: 1.5rem;"></i>
-                                Mengelola User
-                            </h1>
-                        </div>
-                        <div class="card-body">
-                            <!-- add userr btn  -->
-                            <a href="<?php echo site_url('tambahuser') ?>">
-                                <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> Tambah User
-                                </button>
-                            </a>
-                            <!-- Show list of user -->
-                            <table class="table table-bordered table-hover mt-2">
-                                <thead>
-                                    <tr>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>Hak Akses</th>
-                                        <th>Status</th>
-                                        <th style="width: 15%;">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($all_data as $pengelolaanuser):?>
-                                    <tr>
-                                        <td><?= $pengelolaanuser->username?></td>
-                                        <td><?= $pengelolaanuser->password?></td>
-                                        <td><?= $pengelolaanuser->role?></td>
-                                        <td><?= $pengelolaanuser->status_pengguna?></td>
-                                        <td>
-                                            <div class="btn-group " role="group" aria-label="Action buttons">
-                                                <a href="<?php echo site_url('edituser').'/'.$pengelolaanuser->id_pengguna ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
-                                                <a href="<?php echo site_url('hapususer').'/'.$pengelolaanuser->id_pengguna ?>" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header  bg-dark">
+                                    <h1 class="card-title">
+                                        <i class="fa fa-users" style="font-size: 1.5rem;"> Daftar Pengguna</i>
+                                    </h1>
+                                </div>
+                                <div class="card-body">
+                                    <a href="<?php echo site_url('tambahuser') ?>">
+                                        <button class="btn btn-sm btn-success">
+                                            <i class="fas fa-plus"></i> Tambah Pengguna
+                                        </button>
+                                    </a>
+                                    <table class="table table-bordered table-hover mt-2">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Username</th>
+                                                <th>Role</th>
+                                                <th style="width: 15%;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $i = 1 ?>
+                                            <?php foreach ($users as $pengelolaanuser) : ?>
+                                                <tr>
+                                                    <td><?php echo $i++; ?></td>
+                                                    <td><?= $pengelolaanuser->username ?></td>
+                                                    <td><?= $pengelolaanuser->role ?></td>
+                                                    <td>
+                                                        <div class="btn-group " role="group" aria-label="Action buttons">
+                                                            <a href="<?php echo site_url('edituser') . '/' . $pengelolaanuser->id_pengguna ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                            <a href="<?php echo site_url('hapususer') . '/' . $pengelolaanuser->id_pengguna ?>" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach ?>
+                                        </tbody>
+                                    </table>
+                                </div> <!--card body  -->
+                            </div>
                         </div>
                     </div>
                 </div>
