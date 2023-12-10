@@ -90,6 +90,12 @@ class MengelolaUser extends BaseController
             'role' => 'required'
         ]);
 
+        $passwordInput = $this->request->getPost('password');
+
+        if (is_string($passwordInput)) {
+            $password = md5($passwordInput);
+        }
+
         // run validation
         if (!$validation->withRequest($this->request)->run()) {
             // Validation failed, redirect back with errors and input data
@@ -97,6 +103,7 @@ class MengelolaUser extends BaseController
             session()->setFlashdata('errors', $errors); // Store errors in flash data
             return redirect()->to('edituser/' . $id_pengguna)->withInput();
         } else {
+    
             // check if the password blank 
             if ($this->request->getPost('password') === '') {
                 //catch all data and store in array 
@@ -112,7 +119,7 @@ class MengelolaUser extends BaseController
                 // catch all input and store in array 
                 $data = [
                     'username' => $this->request->getPost('username'),
-                    'password' => md5(json_encode($this->request->getPost('password'))),
+                    'password' => $password,
                     'role' => $this->request->getPost('role')
                 ];
 
