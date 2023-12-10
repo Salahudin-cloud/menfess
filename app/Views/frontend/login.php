@@ -13,7 +13,7 @@
   <div class="section lpage">
     <a class="logo" style="margin-left: 30px;">UnveilU<span class="text-primary">.</span></a>
     <div class="login-container">
-      <?php
+    <?php
       $session = session();
       // jiika ada salah satu form tidak diisi
       if ($session->getFlashdata('error') == 'failed') {

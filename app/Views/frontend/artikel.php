@@ -35,28 +35,32 @@
                 <!-- Tambahkan tombol untuk kategori lainnya sesuai kebutuhan -->
               </div>
               <div id="article-list">
+                <?php foreach($artikel_data as $articles):?>
                 <div class="ctb" data-category="kampus">
                   <article class="cta" data-aos="fade-up">
-                    <img class="artikelcard" src='https://images.unsplash.com/photo-1600078686889-8c42747c25fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NDMzMjg5Nw&ixlib=rb-1.2.1&q=80&w=400' alt='Bluetit'>
+                    <div class="kiri">
+                      <img class="artikelcard" src="<?= base_url().'assets/images/'.$articles->gambar_artikel?>" alt='Bluetit' width="50%">
+                    </div>
                     <div class="cta__text-column">
-                      <h2 class="judulcard">Aspect ratio is great</h2>
-                      <p>This image has an aspect ratio of 3/2.</p>
-                      <a href="#">Read all about it</a>
+                      <h2 class="judulcard"><?= $articles->judul_artikel?></h2>
+                      <p><?= $articles->penjelasan_singkatartikel?></p>
+                      <a href="<?php site_url('isiartikel').'/'.$articles->id_artikel?>">Read all about it</a>
                     </div>
                   </article>
                 </div>
                 <div class="ctb" data-category="karir">
                   <article class="cta" data-aos="fade-up">
-                    <img class="artikelcard" src='https://images.unsplash.com/photo-1569762825621-2dab96140a1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NDMzNDkxMQ&ixlib=rb-1.2.1&q=80&w=400' alt='Small blue-grey yellow-breasted bird'>
+                    <div class="kiri">
+                    <img class="artikelcard" src='<?= base_url().'assets/images/'.$articles->gambar_artikel?>' alt='Small blue-grey yellow-breasted bird'>
+                    </div>
                     <div class="cta__text-column">
-                      <h2 class="judulcard">Aspect ratio is great</h2>
-                      <p>This image has an aspect ratio of 3/2. But when the text is longer, the image grows too, overriding its aspect ratio. Cool!</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                      <a href="#">Read all about it</a>
+                      <h2 class="judulcard"><?= $articles->judul_artikel?></h2>
+                      <p><?= $articles->penjelasan_singkatartikel?></p>
+                      <a href="<?php site_url('isiartikel').'/'.$articles->id_artikel?>">Read all about it</a>
                     </div>
                   </article>
                 </div>
-                <!-- Artikel-artikel lainnya di sini -->
+                <?php endforeach?>
               </div>
             </div>
         

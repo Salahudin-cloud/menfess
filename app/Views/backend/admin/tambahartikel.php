@@ -40,37 +40,54 @@
                             </h1>
                         </div>
                         <div class="card-body">
-                            <form action="<?= base_url('prosestambahartikel') ?>" method="post">
+                            <form action="<?= base_url('prosestambahartikel') ?>" method="POST" enctype="multipart/form-data">
+
                                 <label for="judul">Judul</label><br>
-                                <input type="text" name="judul_artikel" maxlength="90">
+                                <input type="text" id="judul_artikel" name="judul_artikel" maxlength="90" value="<?= old('judul_artikel')?>">
                                 <br>
 
                                 <label for="tanggal_artikel">Tanggal Artikel</label><br>
-                                <input type="date" name="tanggal_artikel"><br>
+                                <input type="date" id="tanggal_artikel" name="tanggal_artikel" value="<?= old('tanggal_artikel')?>"><br>
 
                                 <label for="kategori_artikel">Kategori</label><br>
-                                <input name="kategori_artikel" type="radio" value="Kampus" required autofocus>
+                                <input name="kategori_artikel" id="kategori_artikel" type="radio" value="Kampus" required autofocus>
                                  <label for="kategori_artikel">Karir</label>
-                                <input name="kategori_artikel" type="radio" value="Karir"required autofocus>
+                                <input name="kategori_artikel" id="kategori_artikel" type="radio" value="Karir"required autofocus>
                                 <label for="kategori_artikel">Kampus</label><br>
 
-                                <label for="gambar_artikel">Gambar</label>
-                                <input type="file" name="gambar_artikel"><br>
+                                <label for="gambar_artikel">Gambar</label><br>
+                                <input class="<?= ($validation->hasError('gambar_artikel')) ?'is-invalid' : '' ?>" type="file" id="gambar_artikel" name="gambar_artikel" >
+                                <?= $validation-> getError('gambar_artikel')?>
+                                <?= session()->getFlashdata('errors')?>
 
+                                <br>
+                                <label for="penjelasan_singkatartikel">Penjelasan Singkat Artikel</label><br>
+                                <textarea name="penjelasan_singkatartikel" id="penjelasan_singkatartikel" cols="100" rows="10"> <?= old('penjelasan_singkatartikel')?></textarea>
+                                <br>
+
+                                <br>
                                 <label for="isi_artikel">Isi Artikel</label><br>
-                                <textarea name="isi_artikel" id="isi_artikel" cols="100" rows="10"></textarea>
+                                <textarea name="isi_artikel" id="isi_artikel" cols="100" rows="10"> <?= old('isi_artikel')?></textarea>
                                 <br>
 
                                 <label for="status_artikel">Status Artikel</label><br>
-                                <input name="status_artikel" type="radio" value="Publikasi" required autofocus>
+                                <input name="status_artikel" id="status_artikel" type="radio" value="Publikasi" required autofocus>
                                 <label for="status_artikel">Publikasi</label>
-                                <input name="status_artikel" type="radio" value="Tidak Publikasi" required autofocus>
+                                <input name="status_artikel" id="status_artikel" type="radio" value="Tidak Publikasi" required autofocus>
                                 <label for="status_artikel">Tidak Publikasi</label><br>
 
                                 <a class="btn btn-sm btn-success float-right ml-1" style="color: white;" href="<?php echo site_url('article') ?>"> Batal</a>
                                 <button type="submit" class="btn btn-sm btn-success float-right">
                                     Simpan
                                 </button>
+                                <div>
+                                    <?php
+                                    if(!empty(session()->getFlashdata('success'))) : ?>
+                                    <div class="alert alert-success" role="alert">
+                                        <?php echo session()->getFlashdata('success')?>
+                                    </div>
+                                    <?php endif; ?> 
+                                </div>
                             </form>
                         </div>
                     </div>

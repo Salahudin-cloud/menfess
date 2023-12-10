@@ -12922,19 +12922,6 @@ button {
   padding-bottom: 4rem;
 }
 
-.apage {
-  background-image: url("../images/bacground.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: "Poppins", sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding-bottom: 4rem;
-}
-
 .lpage {
   background-image: url("../images/login.jpg");
   background-size: cover;
@@ -12947,6 +12934,7 @@ button {
   gap: 2rem;
   padding-bottom: 4rem;
 }
+
 .login-container {
   width: 469px;
   height: 344px;
@@ -13011,8 +12999,9 @@ input.line {
 .text-4 {
   position: absolute;
   width: auto;
+  height: auto;
   top: 50%;
-  right: 10%;
+  right: 15%;
   color: rgb(255, 255, 255);
   font-size: 40px;
   font-weight: 700;
@@ -13022,7 +13011,6 @@ input.line {
   word-break: break-word;
 }
 
-/* Register */
 .register-container {
   width: 469px;
   height: 344px;
@@ -13086,6 +13074,19 @@ input.line {
   transform: translate(0, -50%);
   z-index: 10;
   word-break: break-word;
+}
+
+.apage {
+  background-image: url("../images/bacground.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 4rem;
 }
 
 .tuulis {
@@ -13366,10 +13367,12 @@ a.text-muted:focus {
   overflow: hidden;
   border: 3px #864879 solid;
   margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta .artikelcard {
-  aspect-ratio: 3 / 2;
+  /* aspect-ratio: 3 / 2; */
   object-fit: cover;
   flex: 1 1 100px;
   padding: 15px;
@@ -14016,7 +14019,7 @@ textarea:hover {
   font-size: 13px;
 }
 
-/* .video-wrap {
+.video-wrap {
   position: relative;
 }
 .video-wrap .play-wrap {
@@ -14046,7 +14049,7 @@ textarea:hover {
 .video-wrap:hover .play-wrap {
   width: 60px;
   height: 60px;
-} */
+}
 
 .custom-navigation a,
 .custom-navigation span {

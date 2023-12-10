@@ -55,11 +55,17 @@
                                 <input name="kategori_artikel" type="radio" value="Karir" <?php echo ($artikel_edit->kategori_artikel === 'Karir') ? 'checked' : ''; ?> required autofocus>
                                 <label for="kategori_artikel">Karir</label><br>
 
-                                <label for="gambar_artikel">Gambar</label>
-                                <input type="file" name="gambar_artikel" value="<?= $artikel_edit->gambar_artikel?>"><br>
+                                <label for="gambar_artikel">Gambar</label><br>
+                                <?= $artikel_edit->gambar_artikel?><br>
+                                <input type="file" name="gambar_artikel"><br>
+
+                                <br>
+                                <label for="penjelasan_singkatartikel">Penjelasan Singkat Artikel</label><br>
+                                <textarea name="penjelasan_singkatartikel" id="penjelasan_singkatartikel" cols="100" rows="10"> <?= $artikel_edit->penjelasan_singkatartikel?></textarea>
+                                <br>
 
                                 <label for="isi_artikel">Isi Artikel</label><br>
-                                <textarea name="isi_artikel" id="isi_artikel" cols="100" rows="10" value="<?= $artikel_edit->isi_artikel?>"></textarea>
+                                <textarea name="isi_artikel" id="isi_artikel" cols="100" rows="10"><?= $artikel_edit->isi_artikel?></textarea>
                                 <br>
 
                                 <label for="status_artikel">Status Artikel</label><br>

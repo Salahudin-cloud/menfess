@@ -9,5 +9,5 @@ class MengelolaArtikelModel extends Model
     protected $table = 'artikel';
     protected $primaryKey = 'id_artikel';
     protected $returnType = 'object';
-    protected $allowedFields = ['judul_artikel', 'tanggal_artikel', 'kategori_artikel', 'gambar_artikel', 'isi_artikel', 'status_artikel'];
+    protected $allowedFields = ['judul_artikel', 'tanggal_artikel', 'kategori_artikel', 'gambar_artikel', 'penjelasan_singkatartikel', 'isi_artikel', 'status_artikel'];
 }
