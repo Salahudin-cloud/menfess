@@ -23,8 +23,11 @@ $routes->post('/auth', 'Login::auth');
 // log out
 $routes->get('/logout', 'Login::logout');
 
-
+// register 
+// render halaman register
 $routes->get('/register', 'Register::regis');
+// process register 
+$routes->post('/registerProcess', 'Register::proccessRegister');
 
 // backend 
 //backend admin : homepage dashboard
