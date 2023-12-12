@@ -3,14 +3,14 @@
 
 namespace App\Controllers;
 
-use App\Models\MengelolaUserModel;
+use App\Models\PengelolaUserModel;
 
-class MengelolaUser extends BaseController
+class PengelolaUser extends BaseController
 {
-    protected $mengelolaUserModel;
+    protected $pengelolaUserModel;
     public function __construct()
     {
-        $this->mengelolaUserModel = new MengelolaUserModel();
+        $this->pengelolaUserModel = new PengelolaUserModel();
     }
 
     // render halaman user manager  admn 
@@ -22,7 +22,7 @@ class MengelolaUser extends BaseController
             return redirect()->to('login');
         }
         // mendapatkan data dari modedl 
-        $data['users'] = $this->mengelolaUserModel->getAllPengguna();
+        $data['users'] = $this->pengelolaUserModel->getAllPengguna();
         return view('backend/admin/user_management', $data);
     }
 
@@ -62,7 +62,7 @@ class MengelolaUser extends BaseController
             return redirect()->to('tambahuser')->withInput();
         } else {
             // run commad insert 
-            $this->mengelolaUserModel->tambahPengguna($username, $password, $role);
+            $this->pengelolaUserModel->tambahPengguna($username, $password, $role);
             return redirect()->to('user_management');
         }
     }
@@ -75,7 +75,7 @@ class MengelolaUser extends BaseController
         if (!$session->get('isLogin')) {
             return redirect()->to('login');
         }
-        $data['users'] = $this->mengelolaUserModel->getPenggunaById($id_pengguna);
+        $data['users'] = $this->pengelolaUserModel->getPenggunaById($id_pengguna);
         return view('backend/admin/edituser', $data);
     }
 
@@ -112,7 +112,7 @@ class MengelolaUser extends BaseController
                     'role' => $this->request->getPost('role')
                 ];
                 // perform update user without password 
-                $this->mengelolaUserModel->proccessUpdate($id_pengguna, $data);
+                $this->pengelolaUserModel->proccessUpdate($id_pengguna, $data);
 
                 return redirect()->to('user_management');
             } else {
@@ -123,7 +123,7 @@ class MengelolaUser extends BaseController
                     'role' => $this->request->getPost('role')
                 ];
 
-                $this->mengelolaUserModel->proccessUpdate($id_pengguna, $data);
+                $this->pengelolaUserModel->proccessUpdate($id_pengguna, $data);
             }
 
             return redirect()->to('user_management');
@@ -133,8 +133,7 @@ class MengelolaUser extends BaseController
 
     public function hapususr($id_pengguna)
     {
-        $mengelola_user = new MengelolaUserModel();
-        $mengelola_user->delete($id_pengguna);
+        $this->pengelolaUserModel->delete($id_pengguna);
         return redirect()->to(base_url('user_management'));
     }
 }

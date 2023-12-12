@@ -50,9 +50,9 @@ $routes->get('/hapususer/(:any)', 'MengelolaUser::hapususr/$1');
 
 
 // backend admin : artcle 
-$routes->get('/article', 'MengelolaArtikel::artikeladmin');
-$routes->get('/tambahartikel', 'MengelolaArtikel::tambahartik');
-$routes->post('/prosestambahartikel', 'MengelolaArtikel::prosestambahartik');
-$routes->get('/editartikel/(:any)', 'MengelolaArtikel::editartik/$1');
-$routes->post('/proseseditartikel', 'MengelolaArtikel::proseseditartik');
-$routes->get('/hapusartikel/(:any)', 'MengelolaArtikel::hapusartik/$1');
+$routes->get('/article', 'PengelolaArtikel::artikeladmin');
+$routes->get('/tambahartikel', 'PengelolaArtikel::tambahartik');
+$routes->post('/prosestambahartikel', 'PengelolaArtikel::prosestambahartik');
+$routes->get('/editartikel/(:any)', 'PengelolaArtikel::editartik/$1');
+$routes->post('/proseseditartikel', 'PengelolaArtikel::proseseditartik');
+$routes->get('/hapusartikel/(:any)', 'PengelolaArtikel::hapusartik/$1');
