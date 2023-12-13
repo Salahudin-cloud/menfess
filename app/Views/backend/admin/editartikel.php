@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Artikel</title>
 
-    <!-- IMPORT REUIRED FILE CSS -->
-    <?php include(APPPATH  . 'Views/imports/scripts/css_backend.php') ?>
+    <!-- IMPORT REQUIRED FILE CSS -->
+    <?php include(APPPATH . 'Views/imports/scripts/css_backend.php') ?>
 
 </head>
 
@@ -20,15 +20,12 @@
         <!-- navbar -->
         <?php include(APPPATH . 'Views/imports/templates/backend/nav.php') ?>
 
-
         <!-- sidebar -->
         <?php include(APPPATH . 'Views/imports/templates/backend/sidebar.php') ?>
-
 
         <div class="content-wrapper">
             <!-- navbar -->
             <?php include(APPPATH . 'Views/imports/templates/backend/content_header.php') ?>
-            <!-- Main content -->
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -36,39 +33,39 @@
                         <div class="card-header">
                             <h1 class="card-title ">
                                 <i class="nav-icon fas fa-layer-group" style="font-size: 1.5rem;"></i>
-                                Tambah Artikel
+                                Edit Artikel
                             </h1>
                         </div>
                         <div class="card-body">
-                        <form action="<?= base_url('proseseditartikel') ?>" method="post">
-                        <input type="hidden" name="id_artikel" maxlength="30" value="<?= $artikel_edit->id_artikel?>">
-                                <label for="judul">Judul</label><br>
-                                <input type="text" name="judul_artikel" maxlength="90" value="<?= $artikel_edit->judul_artikel?>">
+                            <form action="<?= base_url('proseseditartikel') ?>" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="artikel_id" value="<?= $artikel_edit->artikel_id ?>">
+
+                                <label for="artikel_judul">Judul</label><br>
+                                <input type="text" name="artikel_judul" maxlength="90" value="<?= $artikel_edit->artikel_judul ?>">
                                 <br>
 
-                                <label for="tanggal_artikel">Tanggal Artikel</label><br>
-                                <input type="date" name="tanggal_artikel" value="<?= $artikel_edit->tanggal_artikel?>"><br>
+                                <label for="artikel_tanggal">Tanggal Artikel</label><br>
+                                <input type="date" name="artikel_tanggal" value="<?= $artikel_edit->artikel_tanggal ?>"><br>
 
-                                <label for="kategori_artikel">Kategori</label><br>
-                                <input name="kategori_artikel" type="radio" value="Kampus" <?php echo ($artikel_edit->kategori_artikel === 'Kampus') ? 'checked' : ''; ?> required autofocus>
-                                 <label for="kategori_artikel">Kampus</label>
-                                <input name="kategori_artikel" type="radio" value="Karir" <?php echo ($artikel_edit->kategori_artikel === 'Karir') ? 'checked' : ''; ?> required autofocus>
-                                <label for="kategori_artikel">Karir</label><br>
+                                <label for="artikel_cover">Gambar</label><br>
+                                <img src="<?= base_url('assets/images/' . $artikel_edit->artikel_cover) ?>" alt="Artikel Cover" style="max-width: 300px; max-height: 300px;"><br>
+                                <input type="file" name="artikel_cover"><br>
 
-                                <label for="gambar_artikel">Gambar</label>
-                                <input type="file" name="gambar_artikel" value="<?= $artikel_edit->gambar_artikel?>"><br>
-
-                                <label for="isi_artikel">Isi Artikel</label><br>
-                                <textarea name="isi_artikel" id="isi_artikel" cols="100" rows="10" value="<?= $artikel_edit->isi_artikel?>"></textarea>
+                                <label for="artikel_slug">Slug</label><br>
+                                <input type="text" id="artikel_slug" name="artikel_slug" maxlength="90" value="<?= $artikel_edit->artikel_slug ?>">
                                 <br>
 
-                                <label for="status_artikel">Status Artikel</label><br>
-                                <input name="status_artikel" type="radio" value="Publikasi" <?php echo ($artikel_edit->status_artikel === 'Publikasi') ? 'checked' : ''; ?> required autofocus>
-                                <label for="status_artikel">Publikasi</label>
-                                <input name="status_artikel" type="radio" value="Tidak Publikasi" <?php echo ($artikel_edit->status_artikel === 'Tidak Publikasi') ? 'checked' : ''; ?> required autofocus required autofocus>
-                                <label for="status_artikel">Tidak Publikasi</label><br>
+                                <label for="artikel_konten">Isi Artikel</label><br>
+                                <textarea name="artikel_konten" id="artikel_konten" cols="100" rows="10"><?= $artikel_edit->artikel_konten ?></textarea>
+                                <br>
 
-                                <a class="btn btn-sm btn-success float-right ml-1" style="color: white;" href="<?php echo site_url('article') ?>"> Batal</a>
+                                <label for="artikel_status">Status Artikel</label><br>
+                                <input name="artikel_status" type="radio" value="Publikasi" <?php echo ($artikel_edit->artikel_status === 'Publikasi') ? 'checked' : ''; ?> required autofocus>
+                                <label for="artikel_status">Publikasi</label>
+                                <input name="artikel_status" type="radio" value="Tidak Publikasi" <?php echo ($artikel_edit->artikel_status === 'Tidak Publikasi') ? 'checked' : ''; ?> required autofocus>
+                                <label for="artikel_status">Tidak Publikasi</label><br>
+
+                                <a class="btn btn-sm btn-success float-right ml-1" style="color: white;" href="<?= site_url('pengelolaartikel/artikeladmin') ?>"> Batal</a>
                                 <button type="submit" class="btn btn-sm btn-success float-right">
                                     Simpan
                                 </button>
@@ -79,14 +76,14 @@
             </div>
         </div>
         <!-- footer -->
-        <?php include(APPPATH  . 'Views/imports/templates/backend/footer.php') ?>
+        <?php include(APPPATH . 'Views/imports/templates/backend/footer.php') ?>
 
-        <!-- control siidebar -->
-        <?php include(APPPATH  . 'Views/imports/templates/backend/control_sidebar.php') ?>
+        <!-- control sidebar -->
+        <?php include(APPPATH . 'Views/imports/templates/backend/control_sidebar.php') ?>
 
     </div>
-    <!-- reuired file js  -->
-    <?php include(APPPATH  . 'Views/imports/scripts/js_backend.php') ?>
+    <!-- required file js -->
+    <?php include(APPPATH . 'Views/imports/scripts/js_backend.php') ?>
 </body>
 
 </html>
