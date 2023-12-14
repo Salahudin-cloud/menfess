@@ -10,7 +10,7 @@ class RegisterModel extends Model
     protected $primaryKey = 'id_pengguna';
     protected $allowedFields = ['username', 'password', 'role'];
 
-    // funciton menambhakn pengguna baru ke database 
+
     public function regis($username, $password, $role)
     {
         return $this->db->table('pengguna')->insert([
@@ -21,17 +21,15 @@ class RegisterModel extends Model
     }
 
 
-    // function ceek apakah username sudah ad a
+ 
     public function isUsernameExist($username)
     {
         $query =  $this->db->table('pengguna')->where('username', $username)->get()->getRow();
 
-        // jika ada username 
         if (!empty($query)) {
             return true;
         }
 
-        // jika tidak ada
         return false;
     }
 }

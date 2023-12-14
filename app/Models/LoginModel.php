@@ -13,7 +13,7 @@ class LoginModel extends Model
     protected $allowedFields = ['username', 'password', 'role', 'status_pengguna'];
 
 
-    //cek users password
+
     public function validateUser($username, $password)
     {
         $query = $this->db->table('pengguna')

@@ -26,49 +26,72 @@
 
 
         <div class="content-wrapper">
-            <!-- Main content -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Mengelola Kategori</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="<?php echo site_url('dashboard') ?>">Home</a></li>
+                                <li class="breadcrumb-item active">Mengelola Artikel</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="card card-dark">
+                    <div class="card">
                         <div class="card-header">
-                            <h1 class="card-title ">
-                                <i class="nav-icon fas fa-layer-group" style="font-size: 1.5rem;"></i>
-                                Mengelola Artikel
-                            </h1>
+                            <!-- button add category -->
+
                         </div>
                         <div class="card-body">
-                            <!-- add userr btn  -->
-                            <a href="<?php echo site_url('tambahartikel') ?>">
-                                <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-plus"></i> Add Artikel
-                                </button>
-                            </a>
-                            <!-- Show list of user -->
-                            <table class="table table-bordered table-hover mt-2">
+                            <!-- Show list of category -->
+                            <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th style="width: 1%;">NO</th>
+                                        <th>Tanggal</th>
                                         <th>Judul Artikel</th>
-                                        <th>Tanggal Artikel</th>
-                                        <th>Gambar Artikel</th>
-                                        <th>Status Artikel</th>
+                                        <th>Kategori Artikel</th>
+                                        <th style="width: 10%;">Cover</th>
+                                        <th>Status</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($artickel as $pengelolaanartikel): ?>
-                                    <tr>
-                                        <td><?= $pengelolaanartikel->artikel_judul?></td>
-                                        <td><?= $pengelolaanartikel->artikel_tanggal?></td>
-                                        <td><?= $pengelolaanartikel->artikel_cover?></td>
-                                        <td><?= $pengelolaanartikel->artikel_status?></td>
-                                        <td>
-                                            <div class="btn-group " role="group" aria-label="Action buttons">
-                                                <a href="<?php echo site_url('editartikel').'/'.$pengelolaanartikel->artikel_id ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
-                                                <a href="<?php echo site_url('hapusartikel').'/'.$pengelolaanartikel->artikel_id ?>" onclick="alert('Do you want to delete this user ? ')" class="btn btn-sm btn-danger mr-1"><i class="nav-icon fas fa-trash"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($artickel as $artikel) : ?>
+                                        <?php $i = 1; ?>
+                                        <tr>
+                                            <td><?php echo $i++; ?></td>
+                                            <td><?php echo date('d/m/y H:i', strtotime($artikel->artikel_tanggal)) ?></td>
+                                            <td><?php echo $artikel->artikel_judul ?></td>
+                                            <td><?php echo $artikel->kategori_nama ?></td>
+                                            <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/images/' . $artikel->artikel_cover; ?>"></td>
+                                            <td>
+                                                <?php if ($artikel->artikel_status === "publikasi") : ?>
+                                                    <span class="badge badge-success">Publikasi</span>
+                                                <?php else : ?>
+                                                    <span class="badge badge-danger">Draft</span>
+                                                <?php endif; ?>
+                                            </td>
+
+                                            <td>
+                                                <div class="btn-group " role="group" aria-label="Action buttons">
+                                                    <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i></a>
+                                                    <a href="<?php echo site_url('editartikel/' . $artikel->artikel_id) ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
+                                                    <form action="" method="POST">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Are sure delete this article ? ')"><i class="nav-icon fas fa-trash"></i></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     <?php endforeach ?>
                                 </tbody>
                             </table>

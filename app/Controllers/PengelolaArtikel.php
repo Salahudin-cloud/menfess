@@ -2,20 +2,23 @@
 
 namespace App\Controllers;
 
+use App\Models\KategoriModel;
 use App\Models\PengelolaArtikelModel;
 
 class PengelolaArtikel extends BaseController
 {
     protected $pengelola_artikel;
-
+    protected $kategoriModel;
     public function __construct()
     {
         $this->pengelola_artikel = new PengelolaArtikelModel();
+        $this->kategoriModel = new KategoriModel();
     }
 
     public function artikeladmin()
     {
         $dataartikel['artickel'] = $this->pengelola_artikel->getAllArtikel();
+
         return view('backend/admin/articleadmin', $dataartikel);
     }
 
@@ -59,10 +62,11 @@ class PengelolaArtikel extends BaseController
         }
     }
 
-    public function editartik($artikel_id = false)
+    public function editartik($artikel_id)
     {
-        $artikel_edit = $this->pengelola_artikel->getArtikelById($artikel_id);
-        return view('backend/admin/editartikel', ['artikel_edit' => $artikel_edit]);
+        $artikel['data'] = $this->pengelola_artikel->getArtikelById($artikel_id);
+        $artikel['kategori'] = $this->kategoriModel->getAllKategori();
+        return view('backend/admin/editartikel', $artikel);
     }
 
     public function proseseditartik()
