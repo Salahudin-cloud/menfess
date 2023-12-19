@@ -18,6 +18,9 @@ class KategoriModel extends Model
     {
         return $this->db->table('kategori')->get()->getResult();
     }
+
+    public function deleteKategori($id)
+    {
+        return $this->db->table('kategori')->where('kategori_id', $id)->delete();
+    }
 }
-
-

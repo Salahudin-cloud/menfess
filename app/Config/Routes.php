@@ -42,16 +42,25 @@ $routes->post('prosesedituser/(:any)', 'PengelolaUser::proseseditusr/$1');
 $routes->get('/hapususer/(:any)', 'PengelolaUser::hapususr/$1');
 
 
+$routes->get('/tambahKategori', 'TambahKategori::index');
+
+$routes->post('/prosesTambahKategori', 'TambahKategori::tambahKategoriProc');
+
+$routes->delete('deleteKategori/(:any)', 'Kategori::delKategori/$1');
+
+$routes->get('updateKategori/(:any)', 'UpdateKategori::index/$1');
 
 // backend admin : artcle 
 $routes->get('/article', 'PengelolaArtikel::artikeladmin');
 $routes->get('/tambahartikel', 'PengelolaArtikel::tambahartik');
 $routes->post('/prosestambahartikel', 'PengelolaArtikel::prosestambahartik');
 $routes->get('editartikel/(:any)', 'PengelolaArtikel::editartik/$1');
-$routes->post('/proseseditartikel', 'PengelolaArtikel::proseseditartik');
-$routes->get('/hapusartikel/(:any)', 'PengelolaArtikel::hapusartik/$1');
+$routes->put('proseseditartikel/(:any)', 'PengelolaArtikel::proseseditartik/$1');
+$routes->delete('hapusartikel/(:any)', 'PengelolaArtikel::hapusartik/$1');
 
 
 // backend render : kategori 
 // halaman kategori 
 $routes->get('/kategori', 'Kategori::index');
+
+$routes->put('prosesUpdateKategori/(:any)', 'UpdateKategori::updateKate/$1');

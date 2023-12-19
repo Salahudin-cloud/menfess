@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class PengelolaArtikelModel extends Model
 {
     protected $table = 'artikel';
-    protected $allowedFields = ['artikel_tanggal', 'artikel_judul', 'artikel_slug', 'artikel_konten', 'artikel_cover', 'artikel_status'];
+    protected $allowedFields = ['kategori_id', 'artikel_tanggal', 'artikel_judul', 'artikel_slug', 'artikel_konten', 'artikel_cover', 'artikel_status'];
 
     public function getAllArtikel()
     {
@@ -33,13 +33,37 @@ class PengelolaArtikelModel extends Model
         return $result;
     }
 
-    public function processUpdateArtikel($id, $dataartikel)
+    public function updateArtikelData($id, $data)
     {
-        $this->update($id, $dataartikel);
+        return $this->db->table('artikel')
+            ->where('artikel_id', $id)
+            ->update($data);
     }
 
-    public function tambahArtikel($dataartikel)
+
+    public function getArticleCoverById($id)
     {
-        return $this->insert($dataartikel);
+        return $this->db->table('artikel')
+            ->where('artikel_id', $id)
+            ->get()
+            ->getRow();
+    }
+
+    public function getSpesificArticle($artikel_judul)
+    {
+        return $this->db->table('artikel')
+            ->where('artikel_judul', $artikel_judul)
+            ->get()->getResult();
+    }
+
+    public function addNewArticle($data)
+    {
+        return $this->table('artikel')->insert($data);
+    }
+
+    public function  deleteArtikel($id)
+    {
+        return $this->db->table('artikel')
+            ->where('artikel_id', $id)->delete();
     }
 }

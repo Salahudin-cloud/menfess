@@ -49,7 +49,7 @@
                     <div class="card">
                         <div class="card-header">
                             <!-- button add category -->
-                            <a href="<?php echo site_url('') ?>">
+                            <a href="<?php echo site_url('tambahKategori') ?>">
                                 <button class="btn btn-sm btn-success">
                                     <i class="fas fa-plus"></i> Tambah Kategori
                                 </button>
@@ -61,8 +61,8 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 1%;">NO</th>
-                                        <th>Name Category</th>
-                                        <th>Slud Category</th>
+                                        <th>Nama Kategori</th>
+                                        <th>Slud Kategori</th>
                                         <th style="width: 10%;">Action</th>
                                     </tr>
                                 </thead>
@@ -75,8 +75,8 @@
                                             <td><?php echo $kategori->kategori_slug; ?></td>
                                             <td>
                                                 <div class="btn-group" role="group" aria-label="Action buttons">
-                                                    <a href="" class="btn btn-sm btn-warning"><i class="nav-icon fas fa-edit"></i></a>
-                                                    <form action="" method="POST">
+                                                    <a href="<?php echo site_url('updateKategori/' . $kategori->kategori_id) ?>" class="btn btn-sm btn-warning"><i class="nav-icon fas fa-edit"></i></a>
+                                                    <form action="<?php echo site_url('deleteKategori/' . $kategori->kategori_id) ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button class="btn btn-sm btn-danger" type="submit"><i class="nav-icon fas fa-trash"></i></button>
                                                     </form>

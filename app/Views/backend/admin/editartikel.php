@@ -31,19 +31,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 font-weight-bold">Data Article</h1>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <div class="row mb-2">
+                            <h1 class="m-0">Mengelola Artikel</h1>
+                        </div><!-- /.col -->
                         <div class="col-sm-6">
-                            <a href="<?php echo site_url('/article') ?>">
-                                <button class="btn btn-sm btn-success">
-                                    <i class="fas fa-arrow-left"></i> Back
-                                </button>
-                            </a>
-                        </div>
-                        <!-- /.col -->
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="<?php echo site_url('article') ?>">Mengelola Artikel</a></li>
+                                <li class="breadcrumb-item active">Edit Artikel</li>
+                            </ol>
+                        </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -56,11 +51,21 @@
                             <!-- title  -->
                             <h1 class="card-title ">
                                 <i class="fas fa-newspaper" style="font-size: 1.5rem;"></i>
-                                <strong style="font-size: 1.5rem;">Data Article</strong> <span style="font-size: 1rem;">New Article</span>
+                                <strong style="font-size: 1.5rem;">Edit Artikel</strong>
                             </h1>
                         </div>
                         <div class="card-body">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <?php if (session()->has('errors')) : ?>
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        <!-- it will show error for every field -->
+                                        <?php foreach (session('errors') as $error) : ?>
+                                            <li><?php echo str_replace('article_', '', $error) ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                            <form action="<?php echo site_url('proseseditartikel/' . $data->artikel_id) ?>" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="_method" value="PUT">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -79,8 +84,8 @@
                                     <div class="col-md-6">
                                         <!-- Left position -->
                                         <div class="form-group">
-                                            <label for="artikel_kategori">Pilih Kategori</label>
-                                            <select class="form-control" id="artikel_kategori" name="artikel_kategori">
+                                            <label for="kategori_id">Pilih Kategori</label>
+                                            <select class="form-control" id="kategori_id" name="kategori_id">
                                                 <option value="" selected disabled> -- pilih kategori --</option>
                                                 <?php foreach ($kategori as $kate) : ?>
                                                     <option value="<?= $kate->kategori_id ?>" <?php echo ($kate->kategori_id == $data->kategori_id) ? 'selected' : ''; ?>><?= $kate->kategori_nama ?>

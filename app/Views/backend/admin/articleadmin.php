@@ -30,7 +30,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Mengelola Kategori</h1>
+                            <h1 class="m-0">Mengelola Artikel</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -48,7 +48,11 @@
                     <div class="card">
                         <div class="card-header">
                             <!-- button add category -->
-
+                            <a href="<?php echo site_url('tambahartikel') ?>">
+                                <button class="btn btn-sm btn-success">
+                                    <i class="fas fa-plus"></i> Tambah Artikel
+                                </button>
+                            </a>
                         </div>
                         <div class="card-body">
                             <!-- Show list of category -->
@@ -69,7 +73,7 @@
                                         <?php $i = 1; ?>
                                         <tr>
                                             <td><?php echo $i++; ?></td>
-                                            <td><?php echo date('d/m/y H:i', strtotime($artikel->artikel_tanggal)) ?></td>
+                                            <td><?php echo date('d/m/y', strtotime($artikel->artikel_tanggal)) ?></td>
                                             <td><?php echo $artikel->artikel_judul ?></td>
                                             <td><?php echo $artikel->kategori_nama ?></td>
                                             <td><img width="100%" class="img-responsive" src="<?php echo base_url() . 'assets/images/' . $artikel->artikel_cover; ?>"></td>
@@ -85,7 +89,7 @@
                                                 <div class="btn-group " role="group" aria-label="Action buttons">
                                                     <a href="" class="btn btn-sm btn-success mr-1" target="_blank"><i class="nav-icon fas fa-eye"></i></a>
                                                     <a href="<?php echo site_url('editartikel/' . $artikel->artikel_id) ?>" class="btn btn-sm btn-warning mr-1"><i class="nav-icon fas fa-edit"></i></a>
-                                                    <form action="" method="POST">
+                                                    <form action="<?php echo site_url('hapusartikel/' . $artikel->artikel_id) ?>" method="POST">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-sm btn-danger mr-1" onclick="return confirm('Are sure delete this article ? ')"><i class="nav-icon fas fa-trash"></i></button>
                                                     </form>
